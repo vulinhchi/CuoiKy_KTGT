@@ -1,0 +1,110 @@
+﻿*{
+    margin:0px;
+    padding:0px;
+}
+a,
+a:hover{
+    text-decoration:none;/*tat ca cac chu trong the a deu k con dau gach chan*/
+    color:black;
+    /*K cho gach duoi*/
+}
+img{
+    border:0;
+}
+body {
+    font-size: medium;
+    background-image: url('../HinhAnh/images.jpg');
+
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat repeat-y;
+    background-size: cover;
+}
+
+.PhanTren{
+    height:50px;
+    width:100%;
+    background-repeat:no-repeat;
+    
+}
+.Logo {
+    margin-top: 0px;
+    margin-left: 10%;
+    height: 35px;
+    width: 30px;
+    
+    background-image: url('../HinhAnh/download.jpg');
+    background-size: 70px 50px;
+}
+TimKiem{
+    margin-top:0px;
+    margin-left:20%;
+    height:40px;
+    width:500px;
+    background-color:white;
+}
+#Menu {
+    float: right;
+    width:80%;
+    margin-left:10%;
+    margin-right:10%;
+    
+    height: 40px;
+    background-color:#808080;
+}
+#Menu ul{
+    list-style: none;
+}
+#Menu ul li img{
+    margin-right:20px;
+    height:40px;
+    width:45px;
+   /* border-right:1px solid #eae0e0;*/
+    
+   margin-left:-20px;
+}
+
+#Menu ul li a{
+    text-decoration:none;/*K gach chan*/
+    margin-right:20px;
+   /* border-right:1px solid #eae0e0;*/
+    color:#c81313;
+    height:40px;
+    margin-top:7px;
+    display: inline-block;/*de cho cac chu nam tren 1 dong*/
+}
+
+#Menu ul li a :hover{
+    text-decoration:none;/*K gach chan*/
+    margin-right:20px;
+   /* border-right:1px solid #eae0e0;*/
+    color:#b6ff00;
+    height:40px;
+    margin-top:7px;
+    text-space-collapse:inherit;
+    display: inline-block;/*de cho cac chu nam tren 1 dong*/
+}
+.PhanGiua{
+    float: right;
+    width:80%;
+    margin-left:10%;
+    margin-right:10%;
+    background-color:white
+}
+ .ListNhac{
+        width:43%;
+        height:40%;
+        background-color:#47ef0d;
+}
+.ListNhac ul li{
+        color:#c81313;
+    }
+.PhanCuoi{
+    float:right;
+    
+    width:80%;
+    margin-left:10%;
+    margin-right:10%;
+    
+    color:deeppink;
+}

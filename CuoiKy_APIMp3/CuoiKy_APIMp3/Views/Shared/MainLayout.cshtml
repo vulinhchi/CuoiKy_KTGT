@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - VLC</title>
+    
+    <link href="~/Content/Style_MainLayout.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+   @* @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+</head>
+<body>
+    <div class="PhanTren">
+      @*  <div class="TimKiem">
+        <text> ahihi </text>
+    </div>*@
+        <div id="Menu">
+            <ul>
+                <li  style="float:left">
+                    <img src="~/HinhAnh/download.jpg" />
+                </li>
+                <li style="float:left" >
+                    @Html.ActionLink("Nghe Nhac", "TAINHAC", "Home")
+                </li>
+                <li style="float:left">
+                    @Html.ActionLink("Quan Ly", "GetGoogleDriveFiles", "Home")
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+    <div class="PhanGiua">
+        @RenderBody()
+    </div>
+    <div class="PhanCuoi">
+        <p>@DateTime.Now.Date/@DateTime.Now.Month/ @DateTime.Now.Year </p>
+        <span>
+            Website nghe,tai nhac
+
+        </span>
+    </div>
+</body>
+</html>
