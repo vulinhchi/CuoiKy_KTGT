@@ -47,12 +47,12 @@
             </p>
         }
     </div>
-    <table class="table", border="1">
+    <table class="table" , border="1">
         <tr id="header">
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            
+
             <th>
                 @Html.DisplayNameFor(model => model.Size)
             </th>
@@ -73,19 +73,24 @@
                 <tr id="layouttable">
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
-                        
+
                     </td>
                     <td>
                         @{
                             long? KiloByte = @item.Size / 1024;
-                            string NewSize = KiloByte + " KB";
+                            long? mega = KiloByte / 1024;
+                            string NewSize = mega + " MB";
                         }
                         @NewSize
                     </td>
-                   <td>
-                       @*@@Html.DisplayFor(modelItem => item.WebViewLink)*@
-                       <a href="@Html.DisplayFor(modelItem => item.WebViewLink)" >@Html.DisplayFor(modelItem => item.Name)</a>
-                   </td>
+                    <td>
+                        @*@@Html.DisplayFor(modelItem => item.WebViewLink)*@
+                        <iframe frameborder="0"
+                                width="400"
+                                height="200"
+                                src="@Html.DisplayFor(modelItem => item.WebViewLink)"></iframe>
+                        @*  <a href="@Html.DisplayFor(modelItem => item.WebViewLink)" >@Html.DisplayFor(modelItem => item.Name)</a>*@
+                    </td>
                     <td>
                         @string.Format("{0: dd/MM/yyyy}", Convert.ToDateTime(Html.DisplayFor(modelItem => item.CreatedTime).ToString()))
                     </td>
@@ -100,13 +105,14 @@
                         }
 
                     </td>
+                    
                 </tr>
-                }
-          }
-         else
-          {
-              <td colspan="6">No files found</td>
-          }
+                                }
+                            }
+                            else
+                            {
+                                <td colspan="6">No files found</td>
+                            }
 
     </table>
 

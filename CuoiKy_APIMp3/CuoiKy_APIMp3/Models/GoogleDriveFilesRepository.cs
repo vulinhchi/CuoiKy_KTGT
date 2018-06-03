@@ -39,10 +39,12 @@ namespace CuoiKy_APIMp3.Models
             {
                 HttpClientInitializer = credential,
                 ApplicationName = "CuoiKy_APIMp3",
-                
+
             });
             return service;
         }
+
+      
 
         //get all files from Google Drive.
         public static List<GoogleDriveFiles> GetDriveFiles()
@@ -66,23 +68,26 @@ namespace CuoiKy_APIMp3.Models
                 {
                     if (file.MimeType == "audio/wav")
                     {
-                         GoogleDriveFiles File = new GoogleDriveFiles
+                        string path = file.WebViewLink.Replace("view", "preview");
+                        GoogleDriveFiles File = new GoogleDriveFiles
                         {
                             Id = file.Id,
                             Name = file.Name,
-                            WebViewLink = file.WebViewLink,
+                            // WebViewLink = file.WebViewLink,
+                            WebViewLink = path,
                             Size = file.Size,
                             MimeType = file.MimeType,
-                            CreatedTime = file.CreatedTime
+                            CreatedTime = file.CreatedTime,
+
                         };
                         FileList.Add(File);
                     }
                 }
-               
+
             }
             return FileList;
         }
-       
+
         // watermark file truoc khi up len drive
         //file Upload to the Google Drive.
         public static void FileUpload(HttpPostedFileBase file)
@@ -90,7 +95,7 @@ namespace CuoiKy_APIMp3.Models
             if (file != null && file.ContentLength > 0)
             {
                 DriveService service = GetService();
-                
+
                 string path = Path.Combine(HttpContext.Current.Server.MapPath("~/GoogleDriveFiles"),
                 Path.GetFileName(file.FileName));
                 file.SaveAs(path);
@@ -181,6 +186,26 @@ namespace CuoiKy_APIMp3.Models
             {
                 throw new Exception("Request Files.Delete failed.", ex);
             }
+        }
+
+        // check watermark from file
+        public static string checkWatermark(HttpPostedFileBase file)
+        {
+            if(file != null  && file.ContentLength >0)
+            {
+                string path = Path.Combine(HttpContext.Current.Server.MapPath("~"),
+                    Path.GetFileName(file.FileName));
+                file.SaveAs(path);
+
+                String signature = "";
+                AudioFunction files = new AudioFunction(new FileStream(path, FileMode.Open, FileAccess.Read));
+                audoSteg sh = new audoSteg(files);
+                signature = sh.extractMess();
+
+                return signature;
+
+            }
+            return "";
         }
     }
 }

@@ -154,8 +154,6 @@
     <Content Include="HinhAnh\download.jpg" />
     <Content Include="HinhAnh\images.jpg" />
     <Content Include="HinhAnh\nhung-hinh-nen-dep-cho-dien-thoai-cam-ung-3.jpg" />
-    <Content Include="Nhac\Co-Gai-M52-Huy-Tung-Viu.mp3" />
-    <Content Include="Nhac\Hom-Nay-Toi-Buon-Phung-Khanh-Linh.mp3" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config">
@@ -168,6 +166,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AudioFunction.cs" />
+    <Compile Include="Models\audoSteg.cs" />
     <Compile Include="Models\GoogleDriveFiles.cs" />
     <Compile Include="Models\GoogleDriveFilesRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -183,6 +183,8 @@
     <Content Include="Views\Shared\MainLayout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="client_secret_vulinhchi0vlc.json" />
+    <Content Include="Views\Home\Check.cshtml" />
+    <Content Include="Views\Home\Checked.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
